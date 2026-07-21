@@ -1,14 +1,14 @@
-import { config } from 'dotenv';
-config({ path: '.env.local' });
+import { config } from "dotenv";
+config({ path: ".env" });
 
-import { defineConfig } from 'drizzle-kit';
+import { defineConfig } from "drizzle-kit";
 
 if (!process.env.DATABASE_URL) {
   throw new Error("DATABASE_URL is not set in .env.local");
 }
 
 export default defineConfig({
-  schema: "./src/db/schema.ts",
+  schema: "./src/db/schema.js",
   out: "./drizzle",
   dialect: "postgresql",
   dbCredentials: {
